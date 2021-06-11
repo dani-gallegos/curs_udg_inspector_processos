@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "CursUdG.GRPC.Protos";
+
+import "process_models.proto";
+
+//import "google.protobuf.Empty";
+
+service ProcessViewer {  
+  rpc List (ListRequest) returns (ListResponse);
+  rpc Get (GetRequest) returns (GetResponse);
+  rpc Kill (KillRequest) returns (KillResponse);
+}
+
+message ListRequest {
+}
+
+message ListResponse {
+  repeated ProcessDto items = 1;
+}
+
+message GetRequest {
+  int32 id = 1;
+}
+
+message GetResponse {
+  bool found = 1;
+  ProcessDetailDto item = 2;
+}
+
+message KillRequest {
+  int32 id = 1;
+}
+
+message KillResponse {
+  bool result = 1;
+}

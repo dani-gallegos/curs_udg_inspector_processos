@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "CursUdG.GRPC.Protos";
+
+//import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+
+message ProcessDto {  
+  int32 id = 1;
+  string name = 2;
+  string file_name = 3;
+}
+
+message ProcessDetailDto {
+  int32 id = 1;
+  string name = 2;
+  string module_name = 3;
+  string file_name = 4;
+  google.protobuf.Duration totalProcessorTime = 5;
+  google.protobuf.Duration userProcessorTime = 6;
+}
